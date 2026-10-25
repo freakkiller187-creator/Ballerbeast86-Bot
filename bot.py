@@ -32,3 +32,22 @@ async def hallo(ctx):
     await ctx.send("Yo, was geht?")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
+@bot.command()
+async def socials(ctx):
+    await ctx.send("🔗 Hier meine Links: TikTok: ... Instagram: ...")
+
+@bot.command()
+async def ip(ctx):
+    await ctx.send("🎮 Server IP: 123.45.67.89")
+
+@bot.command()
+async def regeln(ctx):
+    await ctx.send("📜 Regeln: 1. Kein Beef 2. Kein Spam 3. Viel Spaß!")
+
+@bot.command()
+async def hilfe(ctx):
+    await ctx.send("**Befehle:**\n!hallo - Grüßt dich\n!socials - Meine Links\n!ip - Server IP\n!regeln - Regeln\n!Shisha - ...")
+
+@bot.command()
+async def ballern(ctx):
+    await ctx.send("💥 BOOM! Ballerbeast86 ist am Start!")
