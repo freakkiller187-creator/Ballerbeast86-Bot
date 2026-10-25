@@ -86,7 +86,7 @@ async def say(ctx, *, text):
 
 @bot.command()
 @commands.has_permissions(manage_messages=True)
-async def clear(ctx, amount: int = 500):
+async def clear(ctx, amount: int = 5):
     await ctx.channel.purge(limit=amount+1)
     await ctx.send(f"✅ {amount} Nachrichten gelöscht!", delete_after=3)
 
