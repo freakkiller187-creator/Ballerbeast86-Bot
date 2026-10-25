@@ -33,7 +33,10 @@ async def hallo(ctx):
 
 @bot.command()
 async def socials(ctx):
-    await ctx.send("🔗 Hier meine Links: TikTok: ... Instagram: ...")
+    embed = discord.Embed(title="Ballerbeast86 Links 🔥", color=0xFF0000)
+    embed.add_field(name="🌐 Website", value="[ballerbeast1986.beepworld.de](https://ballerbeast1986.beepworld.de/index.htm)", inline=False)
+    embed.set_footer(text="Ballerbeast86 - Klick drauf!")
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def ip(ctx):
@@ -45,7 +48,7 @@ async def regeln(ctx):
 
 @bot.command()
 async def hilfe(ctx):
-    await ctx.send("**Befehle:**\n!hallo\n!socials\n!ip\n!regeln\n!ballern")
+    await ctx.send("**Befehle:**\n!hallo\n!socials - Meine Website\n!ip\n!regeln\n!ballern")
 
 @bot.command()
 async def ballern(ctx):
