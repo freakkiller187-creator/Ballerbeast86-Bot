@@ -55,3 +55,57 @@ async def ballern(ctx):
     await ctx.send("💥 BOOM! Ballerbeast86 ist am Start!")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
+# --- NEU DAZU ---
+@bot.command()
+async def serverinfo(ctx):
+    guild = ctx.guild
+    embed = discord.Embed(title=f"{guild.name} Info", color=0x0000FF)
+    embed.add_field(name="Owner", value=f"{guild.owner}", inline=True)
+    embed.add_field(name="Member", value=f"{guild.member_count}", inline=True)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def userinfo(ctx, member: discord.Member = None):
+    member = member or ctx.author
+    embed = discord.Embed(title=f"User Info - {member.name}", color=0xFFFF00)
+    embed.add_field(name="Beigetreten am", value=f"{member.joined_at.strftime('%d.%m.%Y')}", inline=False)
+    embed.set_thumbnail(url=member.display_avatar.url)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def avatar(ctx, member: discord.Member = None):
+    member = member or ctx.author
+    embed = discord.Embed(title=f"Avatar von {member.name}", color=0x00FF00)
+    embed.set_image(url=member.display_avatar.url)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def say(ctx, *, text):
+    await ctx.message.delete()
+    await ctx.send(text)
+
+@bot.command()
+@commands.has_permissions(manage_messages=True)
+async def clear(ctx, amount: int = 5):
+    await ctx.channel.purge(limit=amount+1)
+    await ctx.send(f"✅ {amount} Nachrichten gelöscht!", delete_after=3)
+
+@bot.command()
+@commands.has_permissions(kick_members=True)
+async def kick(ctx, member: discord.Member, *, reason="Kein Grund"):
+    await member.kick(reason=reason)
+    await ctx.send(f"👢 {member.name} wurde gekickt!")
+
+@bot.command()
+@commands.has_permissions(ban_members=True)
+async def ban(ctx, member: discord.Member, *, reason="Kein Grund"):
+    await member.ban(reason=reason)
+    await ctx.send(f"🔨 {member.name} wurde gebannt!")
+
+@bot.command()
+@commands.has_permissions(moderate_members=True)
+async def timeout(ctx, member: discord.Member, minuten: int = 10):
+    await member.timeout(discord.utils.utcnow() + discord.timedelta(minutes=minuten))
+    await ctx.send(f"⏰ {member.name} für {minuten} Minuten getimeoutet!")
+
+# --- ENDE NEU ---
