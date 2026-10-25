@@ -25,6 +25,10 @@ async def on_ready():
 
 @bot.command()
 async def Shisha(ctx):
-    await ctx.send("💨 Shisha an, beruhig dich! Wer ist dabei? 😎 ")
+    await ctx.send("💨 Shisha an, beruhig dich! Wer ist dabei? 😎")
+
+@bot.command()
+async def hallo(ctx):
+    await ctx.send("Yo, was geht?")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
