@@ -31,7 +31,6 @@ async def Shisha(ctx):
 async def hallo(ctx):
     await ctx.send("Yo, was geht?")
 
-bot.run(os.getenv("DISCORD_TOKEN"))
 @bot.command()
 async def socials(ctx):
     await ctx.send("🔗 Hier meine Links: TikTok: ... Instagram: ...")
@@ -46,8 +45,10 @@ async def regeln(ctx):
 
 @bot.command()
 async def hilfe(ctx):
-    await ctx.send("**Befehle:**\n!hallo - Grüßt dich\n!socials - Meine Links\n!ip - Server IP\n!regeln - Regeln\n!Shisha - ...")
+    await ctx.send("**Befehle:**\n!hallo\n!socials\n!ip\n!regeln\n!ballern")
 
 @bot.command()
 async def ballern(ctx):
     await ctx.send("💥 BOOM! Ballerbeast86 ist am Start!")
+
+bot.run(os.getenv("DISCORD_TOKEN"))
