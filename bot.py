@@ -4,6 +4,7 @@ import os
 
 intents = discord.Intents.default()
 intents.message_content = True
+
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
@@ -11,7 +12,7 @@ async def on_ready():
     print(f'{bot.user} ist online!')
 
 @bot.command()
-async def shisha(ctx):
-    await ctx.send("💨 Shisha an, Chill an! Wer ist dabei? 🔥")
+async def Shisha(ctx):
+    await ctx.send("🫖 Shisha an, beruhig dich! Wer ist dabei? 🔥")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
